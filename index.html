@@ -290,6 +290,74 @@ body { background: #060608; color: var(--text); font-family: var(--body); displa
   align-items: center;
 }
 .footer-card p { font-size: 12px; color: var(--sub); }
+
+@media (max-width: 768px) {
+  html, body { overflow: auto; height: auto; }
+
+  body { align-items: flex-start; padding: 0; background: var(--black); }
+
+  #sparkle-canvas { display: none; }
+
+  .wrap {
+    flex-direction: column;
+    height: auto;
+    max-width: 100%;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    min-height: unset;
+  }
+
+  .left {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 48px 28px 36px;
+    overflow: visible;
+    align-items: flex-start;
+  }
+
+  .left-name { font-size: 36px; }
+
+  .left-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .right {
+    height: auto;
+    overflow: visible;
+    padding: 24px 16px;
+  }
+
+  .card { padding: 32px 24px; }
+
+  .about-bio { text-align: left; }
+
+  .about-meta { grid-template-columns: 1fr 1fr; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .footer-card { padding: 20px 24px; flex-direction: column; gap: 4px; text-align: center; }
+
+  .skill-row { flex-direction: column; gap: 8px; }
+  .skill-cat-name { min-width: unset; }
+}
+
+@media (max-width: 420px) {
+  .left-name { font-size: 30px; }
+  .about-meta { grid-template-columns: 1fr; }
+  .meta-item:nth-child(2n) { border-right: none; }
+  .meta-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+  .meta-item:last-child { border-bottom: none; }
+}
 </style>
 </head>
 <body>
@@ -548,7 +616,13 @@ animate();
 const rp = document.getElementById('rp');
 function go(id) {
   const el = document.getElementById(id);
-  if (el) rp.scrollTo({ top: el.offsetTop - 40, behavior: 'smooth' });
+  if (!el) return;
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    window.scrollTo({ top: el.offsetTop - 20, behavior: 'smooth' });
+  } else {
+    rp.scrollTo({ top: el.offsetTop - 40, behavior: 'smooth' });
+  }
 }
 function tog(el) {
   const was = el.classList.contains('open');
