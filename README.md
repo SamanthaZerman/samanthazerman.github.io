@@ -15,4 +15,4 @@ This is the source code for [samanthazerman.com](https://samanthazerman.com), my
 ## Contact
 
 - Email: samantha.zerman@gmail.com
-- LinkedIn: [linkedin.com/in/samanthazerman](https://linkedin.com/in/samanthazerman)
+- LinkedIn: [https://www.linkedin.com/in/samantha-zerman-22900329/](https://www.linkedin.com/in/samantha-zerman-22900329/)
